@@ -1,0 +1,20 @@
+{
+  "name": "R.E.A.C.T First Aid",
+  "short_name": "REACT Aid",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a2a43",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/backgroundfront.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

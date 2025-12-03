@@ -1,0 +1,318 @@
+/* --- SPLIT SCREEN LAYOUT --- */
+/* Main container that splits the screen into left and right sections */
+.split-container {
+  display: flex; /* Places left and right side by side */
+  height: 100vh; /* Full screen height */
+  outline: none;
+  border: none;
+}
+
+/* Removes default browser margin/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+/* LEFT SIDE (Main app content) */
+/* Main left panel with background image and centered content */
+.left {
+  flex: 4; /* Takes up more space than right panel */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  /* Background image */
+  background-image: url('images/backgroundfront.png'); /* Sets the main background image */
+  background-size: cover;           /* Fill the entire div */
+  background-position: center;      /* Center the image */
+  background-repeat: no-repeat;     /* Prevent repetition */
+
+  color: rgb(255, 255, 255);        /* Text readable on dark background */
+  position: relative;               /* Needed for overlay */
+  min-height: 100vh;                /* Ensures full height */
+  overflow: hidden;                 /* Prevents content overflow */
+}
+
+
+/* Ensures text stands above overlay */
+.left > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* RIGHT SIDE (Hotlines bar) */
+/* Sidebar on the right with emergency numbers */
+.right {
+  flex: 1; /* Smaller than left */
+  background-color: #d42e3a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 30px 20px;
+}
+
+/* Container for hotline list */
+.hotline-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hotline-section h2 {
+  font-size: 50px;
+  border-bottom: 2px solid white;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hotline list formatting */
+.hotline-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 23px;
+  line-height: 1.8;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hotline-section li {
+  margin-bottom: 8px;
+}
+
+/* App logo formatting */
+.logo {
+  width: 700px;
+  margin-bottom: -40px;
+}
+
+.header-bar {
+  background-color: #d32f2f;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps title centered */
+  position: relative;
+}
+
+.header-logo-side {
+  width: 300px;         /* adjust size */
+  position: absolute;
+  left: 20px;           /* keeps it on the left side */
+  top: 430%;
+  transform: translateY(-50%);
+}
+
+.header-bar h1 {
+  font-size: 40px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  
+}
+
+
+/* Title styling */
+h1 {
+  color: #d32f2f;
+  font-size: 200px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 80px;
+}
+
+/* Subtitle text */
+p {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+/* Button styling */
+button {
+  background-color: #d32f2f; /* Red button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+
+/* SECOND PART (Topic list page) */
+header {
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+/* Search box container */
+.search-box {
+  text-align: center;
+  margin: 15px;
+}
+
+.search-box input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+/* --- HOVER PREVIEW POPUP --- */
+/* Small popup showing preview image + short info when hovering a topic */
+.hover-preview {
+  position: fixed;
+  pointer-events: none; /* Allows mouse to pass through */
+  background: white;
+  border: 2px solid #d32f2f;
+  border-radius: 10px;
+  padding: 10px;
+  width: 260px;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  transition: opacity 0.15s ease-in-out;
+  max-width: 280px;
+  pointer-events: none;
+}
+
+/* Preview image inside popup */
+.hover-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+/* Show only if image exists */
+.hover-preview img:not([src=""]) {
+  display: block;
+}
+
+.hover-preview img[src=""] {
+  display: none;
+}
+
+/* Visibility classes for popup */
+.hover-preview.hidden {
+  opacity: 0;
+  display: none;
+}
+
+.hover-preview.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Return button (bottom of topic list) */
+.return-btn-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.return-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.return-btn:hover {
+  background-color: #b12222;
+}
+
+/* Topic list layout */
+.topic-list {
+  list-style-type: none;
+  padding: 30px;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.topic-list li {
+  background-color: #f5f5f5;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.topic-list li:hover {
+  background-color: #ffecec;
+}
+
+/* VIDEO BOX */
+.video-box {
+  margin: 40px;
+  text-align: center;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #d32f2f;
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  border: 2px solid #d32f2f;
+}
+
+/* Button group for switching tabs */
+.button-group {
+  text-align: center;
+  margin: 20px;
+}
+
+.button-group button {
+  margin: 0 10px;
+}
+
+/* Info box (text details for topic) */
+.info-box {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px;
+  border: 2px solid #ddd;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.lead {
+  font-size: 30px;
+}
+
+/* Back button */
+.back-btn {
+  background-color: #555;
+  margin: 20px;
+}
+
+/* Topic info image */
+.info-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+}

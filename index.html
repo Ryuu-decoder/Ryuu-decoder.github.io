@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R.E.A.C.T - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest for offline.json">
+</head>
+<body>
+  <div class="split-container">
+
+    <!-- LEFT SIDE -->
+    <div class="left container">
+      <img src="images/logo.png" alt="R.E.A.C.T Logo" class="logo">
+      <h1>R.E.A.C.T</h1>
+      <p>Pre-Hospital Response and Immediate Medical Care Evaluation</p>
+      <button onclick="window.location.href='firstaid.html'">Start</button>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <div class="hotline-section top">
+        <h2> Local Hotlines</h2>
+        <ul>
+          <li><strong>Barangay Health Center:</strong> Varies by area</li>
+          <li><strong>City/Municipal Rescue:</strong> (02) 8722-0650</li>
+          <li><strong>Local Fire Station:</strong> Check nearest precinct</li>
+          <li><strong>Local Police Station:</strong> (02) 8722-0650</li>
+          <li><strong>Local Hospital:</strong> Check local listings</li>
+        </ul>
+      </div>
+
+      <div class="hotline-section bottom">
+        <h2> National Hotlines</h2>
+        <ul>
+          <li><strong>National Emergency Hotline:</strong> 911</li>
+          <li><strong>Philippine Red Cross:</strong> 143 or (02) 8790-2300</li>
+          <li><strong>PNP Hotline:</strong> 117 or (02) 8722-0650</li>
+          <li><strong>MMDA Rescue:</strong> 136</li>
+          <li><strong>DOH COVID Hotline:</strong> (02) 894-COVID (26843)</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      
+  // Fetch data from Flask backend
+  fetch('http://127.0.0.1:5000/get_data')
+    .then(response => response.json())
+    .then(data => { 
+      const topicList = document.getElementById('topicList');
+
+      for (let topic in data) {
+        const li = document.createElement('li');
+        li.textContent = topic + ": " + data[topic];
+        topicList.appendChild(li);
+      }
+    })
+    .catch(err => console.error('Error fetching data:', err));
+</script>
+  
+
+
+  </div>
+</body>
+</html>

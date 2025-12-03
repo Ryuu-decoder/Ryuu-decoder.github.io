@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R.E.A.C.T - Details</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h2 id="conditionTitle">Condition</h2>
+  </header>
+
+  <div class="video-box">
+  <iframe id="videoFrame"
+          src=""
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+</div>
+
+  <div class="button-group">
+    <button onclick="showContent('procedure')">Procedure</button>
+    <button onclick="showContent('medicine')">Medicine</button>
+    <button onclick="showContent('emergency')">Emergency</button>
+  </div>
+
+  <div id="infoBox" class="info-box">
+    <p>Select an option above to view details.</p>
+  </div>
+
+  <footer>
+    <button class="back-btn" onclick="window.location.href='firstaid.html'">← Back</button>
+  </footer>
+</body>
+</html>

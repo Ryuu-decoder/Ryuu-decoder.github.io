@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R.E.A.C.T - First Aid Topics</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+<header class="header-bar">
+  <img src="images/logo.png" alt="Logo" class="header-logo-side">
+</header>
+
+  <header>
+    <h2>First Aid Topics</h2>
+  </header>
+<!-- hover previews -->
+ <div id="hoverPreview" class="hover-preview hidden">
+  <img id="hoverImage" src="" alt="">
+  <p id="hoverText"></p>
+</div>
+  <!-- Search box --> 
+  <div class="search-box">
+  <button class="return-btn" onclick="window.location.href='index.html'">Return</button>
+  <input type="text" id="searchInput" placeholder="Search first aid...">
+</div>
+
+  <!-- Topic list -->
+  <ul id="topicList" class="topic-list">
+    <!-- List will be populated dynamically by JS -->
+  </ul>
+
+</body>
+</html>
